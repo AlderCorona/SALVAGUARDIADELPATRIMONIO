@@ -1,0 +1,1958 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Desarrollo social, fortalecimiento y salvaguarda del patrimonio cultural</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
+        <script src="data/DIVISINESTATAL_2.js"></script>
+        <script src="data/MUNICIPIOS_3.js"></script>
+        <script src="data/PAISAJESCULTURALESFODA_4.js"></script>
+        <script src="data/LENGUASMAYAS_5.js"></script>
+        <script src="data/RUTATRENMAYA_6.js"></script>
+        <script src="data/ESTACIONES_7.js"></script>
+        <script src="data/PARADEROS_8.js"></script>
+        <script src="data/PAISAJEHISTRICOURBANOFODA_9.js"></script>
+        <script src="data/PATRIMONIOCULTURALINMATERIAL_10.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[15.018271160209531,-94.30612284077829],[22.41069389306439,-82.30555374055574]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_VISTADEVIALIDADES_0');
+        map.getPane('pane_VISTADEVIALIDADES_0').style.zIndex = 400;
+        var layer_VISTADEVIALIDADES_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_VISTADEVIALIDADES_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_VISTADEVIALIDADES_0;
+        map.addLayer(layer_VISTADEVIALIDADES_0);
+        map.createPane('pane_VISTADESATELITE_1');
+        map.getPane('pane_VISTADESATELITE_1').style.zIndex = 401;
+        var layer_VISTADESATELITE_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_VISTADESATELITE_1',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_VISTADESATELITE_1;
+        function pop_DIVISINESTATAL_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Estado</th>\
+                        <td>' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Report PUH</th>\
+                        <td>' + (feature.properties['Report PUH'] !== null ? autolinker.link(feature.properties['Report PUH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DIVISINESTATAL_2_0() {
+            return {
+                pane: 'pane_DIVISINESTATAL_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_DIVISINESTATAL_2');
+        map.getPane('pane_DIVISINESTATAL_2').style.zIndex = 402;
+        map.getPane('pane_DIVISINESTATAL_2').style['mix-blend-mode'] = 'normal';
+        var layer_DIVISINESTATAL_2 = new L.geoJson(json_DIVISINESTATAL_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DIVISINESTATAL_2',
+            layerName: 'layer_DIVISINESTATAL_2',
+            pane: 'pane_DIVISINESTATAL_2',
+            onEachFeature: pop_DIVISINESTATAL_2,
+            style: style_DIVISINESTATAL_2_0,
+        });
+        bounds_group.addLayer(layer_DIVISINESTATAL_2);
+        map.addLayer(layer_DIVISINESTATAL_2);
+        function pop_MUNICIPIOS_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Cod</th>\
+                        <td>' + (feature.properties['Cod'] !== null ? autolinker.link(feature.properties['Cod'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Municipio</th>\
+                        <td>' + (feature.properties['Municipio'] !== null ? autolinker.link(feature.properties['Municipio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estado</th>\
+                        <td>' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MUNICIPIOS_3_0() {
+            return {
+                pane: 'pane_MUNICIPIOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MUNICIPIOS_3');
+        map.getPane('pane_MUNICIPIOS_3').style.zIndex = 403;
+        map.getPane('pane_MUNICIPIOS_3').style['mix-blend-mode'] = 'normal';
+        var layer_MUNICIPIOS_3 = new L.geoJson(json_MUNICIPIOS_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MUNICIPIOS_3',
+            layerName: 'layer_MUNICIPIOS_3',
+            pane: 'pane_MUNICIPIOS_3',
+            onEachFeature: pop_MUNICIPIOS_3,
+            style: style_MUNICIPIOS_3_0,
+        });
+        bounds_group.addLayer(layer_MUNICIPIOS_3);
+        map.addLayer(layer_MUNICIPIOS_3);
+        function pop_PAISAJESCULTURALESFODA_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Paisaje</th>\
+                        <td>' + (feature.properties['Paisaje'] !== null ? autolinker.link(feature.properties['Paisaje'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estado</th>\
+                        <td>' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tramos</th>\
+                        <td>' + (feature.properties['Tramos'] !== null ? autolinker.link(feature.properties['Tramos'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PAISAJESCULTURALESFODA_4_0() {
+            return {
+                pane: 'pane_PAISAJESCULTURALESFODA_4',
+                opacity: 1,
+                color: 'rgba(53,121,177,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PAISAJESCULTURALESFODA_4');
+        map.getPane('pane_PAISAJESCULTURALESFODA_4').style.zIndex = 404;
+        map.getPane('pane_PAISAJESCULTURALESFODA_4').style['mix-blend-mode'] = 'normal';
+        var layer_PAISAJESCULTURALESFODA_4 = new L.geoJson(json_PAISAJESCULTURALESFODA_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PAISAJESCULTURALESFODA_4',
+            layerName: 'layer_PAISAJESCULTURALESFODA_4',
+            pane: 'pane_PAISAJESCULTURALESFODA_4',
+            onEachFeature: pop_PAISAJESCULTURALESFODA_4,
+            style: style_PAISAJESCULTURALESFODA_4_0,
+        });
+        bounds_group.addLayer(layer_PAISAJESCULTURALESFODA_4);
+        function pop_LENGUASMAYAS_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LENGUA</th>\
+                        <td>' + (feature.properties['LENGUA'] !== null ? autolinker.link(feature.properties['LENGUA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">VARIANTES</th>\
+                        <td>' + (feature.properties['VARIANTES'] !== null ? autolinker.link(feature.properties['VARIANTES'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ESTADOS</th>\
+                        <td>' + (feature.properties['ESTADOS'] !== null ? autolinker.link(feature.properties['ESTADOS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RIESGO</th>\
+                        <td>' + (feature.properties['RIESGO'] !== null ? autolinker.link(feature.properties['RIESGO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SABER MÁS</th>\
+                        <td>' + (feature.properties['SABER MÁS'] !== null ? autolinker.link(feature.properties['SABER MÁS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FUENTE</th>\
+                        <td>' + (feature.properties['FUENTE'] !== null ? autolinker.link(feature.properties['FUENTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NO. HABLAN</th>\
+                        <td>' + (feature.properties['NO. HABLAN'] !== null ? autolinker.link(feature.properties['NO. HABLAN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LENGUASMAYAS_5_0(feature) {
+            switch(String(feature.properties['LENGUA'])) {
+                case 'Bats’ik’op':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(178,14,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Ch’ol':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,192,239,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Chontal De Tabasco':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,121,78,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Ixil':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,201,99,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Jach-T’aan':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(85,44,208,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Jakalteko-Popti’':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,202,69,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'K’iche’':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,22,121,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kaqchikel':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(88,134,218,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Koti’':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(170,229,122,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kuti\'':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,91,118,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Maayat’aan':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,141,31,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Q’anjob’al':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(66,73,204,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Q’eqchí':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,239,94,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Qato’k':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,230,234,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Qyool (awateco)':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,131,220,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Qyool (Mam)':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(222,212,17,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Teko':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,105,98,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tojol-Ab’al':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(46,218,172,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tseltal':
+                    return {
+                pane: 'pane_LENGUASMAYAS_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(137,20,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_LENGUASMAYAS_5');
+        map.getPane('pane_LENGUASMAYAS_5').style.zIndex = 405;
+        map.getPane('pane_LENGUASMAYAS_5').style['mix-blend-mode'] = 'normal';
+        var layer_LENGUASMAYAS_5 = new L.geoJson(json_LENGUASMAYAS_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LENGUASMAYAS_5',
+            layerName: 'layer_LENGUASMAYAS_5',
+            pane: 'pane_LENGUASMAYAS_5',
+            onEachFeature: pop_LENGUASMAYAS_5,
+            style: style_LENGUASMAYAS_5_0,
+        });
+        bounds_group.addLayer(layer_LENGUASMAYAS_5);
+        function pop_RUTATRENMAYA_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Tramo</th>\
+                        <td>' + (feature.properties['Tramo'] !== null ? autolinker.link(feature.properties['Tramo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo</th>\
+                        <td>' + (feature.properties['Tipo'] !== null ? autolinker.link(feature.properties['Tipo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Dirección</th>\
+                        <td>' + (feature.properties['Dirección'] !== null ? autolinker.link(feature.properties['Dirección'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitud</th>\
+                        <td>' + (feature.properties['Longitud'] !== null ? autolinker.link(feature.properties['Longitud'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estados</th>\
+                        <td>' + (feature.properties['Estados'] !== null ? autolinker.link(feature.properties['Estados'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estaciones</th>\
+                        <td>' + (feature.properties['Estaciones'] !== null ? autolinker.link(feature.properties['Estaciones'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Paraderos</th>\
+                        <td>' + (feature.properties['Paraderos'] !== null ? autolinker.link(feature.properties['Paraderos'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Territorio</th>\
+                        <td>' + (feature.properties['Territorio'] !== null ? autolinker.link(feature.properties['Territorio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Asentamien</th>\
+                        <td>' + (feature.properties['Asentamien'] !== null ? autolinker.link(feature.properties['Asentamien'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Demanda</th>\
+                        <td>' + (feature.properties['Demanda'] !== null ? autolinker.link(feature.properties['Demanda'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RUTATRENMAYA_6_0(feature) {
+            switch(String(feature.properties['Tramo'])) {
+                case 'Tramo 1 Selva uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 2 Golfo uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 3 Golfo dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 4 Golfo tres':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 5 Caribe dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 6 Caribe uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 7 Selva dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        function style_RUTATRENMAYA_6_1(feature) {
+            switch(String(feature.properties['Tramo'])) {
+                case 'Tramo 1 Selva uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(159,102,220,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 2 Golfo uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(152,0,117,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 3 Golfo dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(243,255,69,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 4 Golfo tres':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(255,177,87,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 5 Caribe dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(9,255,251,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 6 Caribe uno':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(184,117,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Tramo 7 Selva dos':
+                    return {
+                pane: 'pane_RUTATRENMAYA_6',
+                opacity: 1,
+                color: 'rgba(255,179,250,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_RUTATRENMAYA_6');
+        map.getPane('pane_RUTATRENMAYA_6').style.zIndex = 406;
+        map.getPane('pane_RUTATRENMAYA_6').style['mix-blend-mode'] = 'normal';
+        var layer_RUTATRENMAYA_6 = new L.geoJson.multiStyle(json_RUTATRENMAYA_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RUTATRENMAYA_6',
+            layerName: 'layer_RUTATRENMAYA_6',
+            pane: 'pane_RUTATRENMAYA_6',
+            onEachFeature: pop_RUTATRENMAYA_6,
+            styles: [style_RUTATRENMAYA_6_0,style_RUTATRENMAYA_6_1,]
+        });
+        bounds_group.addLayer(layer_RUTATRENMAYA_6);
+        map.addLayer(layer_RUTATRENMAYA_6);
+        function pop_ESTACIONES_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Parada</th>\
+                        <td>' + (feature.properties['Parada'] !== null ? autolinker.link(feature.properties['Parada'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo</th>\
+                        <td>' + (feature.properties['Tipo'] !== null ? autolinker.link(feature.properties['Tipo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estado</th>\
+                        <td>' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Paisaje</th>\
+                        <td>' + (feature.properties['Paisaje'] !== null ? autolinker.link(feature.properties['Paisaje'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tramo</th>\
+                        <td>' + (feature.properties['Tramo'] !== null ? autolinker.link(feature.properties['Tramo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ESTACIONES_7_0() {
+            return {
+                pane: 'pane_ESTACIONES_7',
+                radius: 6.4,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,225,225,1.0)',
+                interactive: true,
+            }
+        }
+        function style_ESTACIONES_7_1() {
+            return {
+                pane: 'pane_ESTACIONES_7',
+                radius: 1.6,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ESTACIONES_7');
+        map.getPane('pane_ESTACIONES_7').style.zIndex = 407;
+        map.getPane('pane_ESTACIONES_7').style['mix-blend-mode'] = 'normal';
+        var layer_ESTACIONES_7 = new L.geoJson.multiStyle(json_ESTACIONES_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ESTACIONES_7',
+            layerName: 'layer_ESTACIONES_7',
+            pane: 'pane_ESTACIONES_7',
+            onEachFeature: pop_ESTACIONES_7,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ESTACIONES_7_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ESTACIONES_7_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_ESTACIONES_7);
+        map.addLayer(layer_ESTACIONES_7);
+        function pop_PARADEROS_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Parada</th>\
+                        <td>' + (feature.properties['Parada'] !== null ? autolinker.link(feature.properties['Parada'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo</th>\
+                        <td>' + (feature.properties['Tipo'] !== null ? autolinker.link(feature.properties['Tipo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Estado</th>\
+                        <td>' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Paisaje</th>\
+                        <td>' + (feature.properties['Paisaje'] !== null ? autolinker.link(feature.properties['Paisaje'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tramo</th>\
+                        <td>' + (feature.properties['Tramo'] !== null ? autolinker.link(feature.properties['Tramo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PARADEROS_8_0() {
+            return {
+                pane: 'pane_PARADEROS_8',
+                radius: 4.8,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PARADEROS_8');
+        map.getPane('pane_PARADEROS_8').style.zIndex = 408;
+        map.getPane('pane_PARADEROS_8').style['mix-blend-mode'] = 'normal';
+        var layer_PARADEROS_8 = new L.geoJson(json_PARADEROS_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PARADEROS_8',
+            layerName: 'layer_PARADEROS_8',
+            pane: 'pane_PARADEROS_8',
+            onEachFeature: pop_PARADEROS_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PARADEROS_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PARADEROS_8);
+        map.addLayer(layer_PARADEROS_8);
+        function pop_PAISAJEHISTRICOURBANOFODA_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">COD</th>\
+                        <td>' + (feature.properties['COD'] !== null ? autolinker.link(feature.properties['COD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">VER LAMIN</th>\
+                        <td>' + (feature.properties['VER LAMIN'] !== null ? autolinker.link(feature.properties['VER LAMIN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ESTADO</th>\
+                        <td>' + (feature.properties['ESTADO'] !== null ? autolinker.link(feature.properties['ESTADO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TRAMO</th>\
+                        <td>' + (feature.properties['TRAMO'] !== null ? autolinker.link(feature.properties['TRAMO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TIPO</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? autolinker.link(feature.properties['TIPO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TEMA PUH</th>\
+                        <td>' + (feature.properties['TEMA PUH'] !== null ? autolinker.link(feature.properties['TEMA PUH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CONCEP PUH</th>\
+                        <td>' + (feature.properties['CONCEP PUH'] !== null ? autolinker.link(feature.properties['CONCEP PUH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PAISAJEHISTRICOURBANOFODA_9_0(feature) {
+            switch(String(feature.properties['TIPO'])) {
+                case 'Amenazas':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                shape: 'square',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,15,19,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Debilidades':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                shape: 'square',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,223,115,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Fortalezas':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                shape: 'square',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(13,105,217,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Oportunidades':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                shape: 'square',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,218,125,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        function style_PAISAJEHISTRICOURBANOFODA_9_1(feature) {
+            switch(String(feature.properties['TIPO'])) {
+                case 'Amenazas':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                radius: 3.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,15,19,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Debilidades':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                radius: 3.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,223,115,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Fortalezas':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                radius: 3.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(13,105,217,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Oportunidades':
+                    return {
+                pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+                radius: 3.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,218,125,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_PAISAJEHISTRICOURBANOFODA_9');
+        map.getPane('pane_PAISAJEHISTRICOURBANOFODA_9').style.zIndex = 409;
+        map.getPane('pane_PAISAJEHISTRICOURBANOFODA_9').style['mix-blend-mode'] = 'normal';
+        var layer_PAISAJEHISTRICOURBANOFODA_9 = new L.geoJson.multiStyle(json_PAISAJEHISTRICOURBANOFODA_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PAISAJEHISTRICOURBANOFODA_9',
+            layerName: 'layer_PAISAJEHISTRICOURBANOFODA_9',
+            pane: 'pane_PAISAJEHISTRICOURBANOFODA_9',
+            onEachFeature: pop_PAISAJEHISTRICOURBANOFODA_9,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PAISAJEHISTRICOURBANOFODA_9_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PAISAJEHISTRICOURBANOFODA_9_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PAISAJEHISTRICOURBANOFODA_9);
+        map.addLayer(layer_PAISAJEHISTRICOURBANOFODA_9);
+        function pop_PATRIMONIOCULTURALINMATERIAL_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PCI MANIF</th>\
+                        <td>' + (feature.properties['PCI MANIF'] !== null ? autolinker.link(feature.properties['PCI MANIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PCI AMBIT</th>\
+                        <td>' + (feature.properties['PCI AMBIT'] !== null ? autolinker.link(feature.properties['PCI AMBIT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ESTADO</th>\
+                        <td>' + (feature.properties['ESTADO'] !== null ? autolinker.link(feature.properties['ESTADO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(feature.properties['MUNICIPIO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">VER LAMI</th>\
+                        <td>' + (feature.properties['VER LAMI'] !== null ? autolinker.link(feature.properties['VER LAMI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PATRIMONIOCULTURALINMATERIAL_10_0(feature) {
+            switch(String(feature.properties['PCI AMBIT'])) {
+                case 'a) Tradiciones y expresiones orales':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,1,196,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'b) Artes del espectáculo':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,176,76,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'c) Usos sociales, rituales y actos festivos':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,130,237,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'd) Conocimientos y usos relacionados con la naturaleza':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(156,232,116,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'e) Técnicas artesanales tradicionales.':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(69,237,175,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        function style_PATRIMONIOCULTURALINMATERIAL_10_1(feature) {
+            switch(String(feature.properties['PCI AMBIT'])) {
+                case 'a) Tradiciones y expresiones orales':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 3.96,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,1,196,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'b) Artes del espectáculo':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 3.96,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,176,76,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'c) Usos sociales, rituales y actos festivos':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 3.96,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,130,237,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'd) Conocimientos y usos relacionados con la naturaleza':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 3.96,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(156,232,116,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'e) Técnicas artesanales tradicionales.':
+                    return {
+                pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+                radius: 3.96,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(69,237,175,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_PATRIMONIOCULTURALINMATERIAL_10');
+        map.getPane('pane_PATRIMONIOCULTURALINMATERIAL_10').style.zIndex = 410;
+        map.getPane('pane_PATRIMONIOCULTURALINMATERIAL_10').style['mix-blend-mode'] = 'normal';
+        var layer_PATRIMONIOCULTURALINMATERIAL_10 = new L.geoJson.multiStyle(json_PATRIMONIOCULTURALINMATERIAL_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PATRIMONIOCULTURALINMATERIAL_10',
+            layerName: 'layer_PATRIMONIOCULTURALINMATERIAL_10',
+            pane: 'pane_PATRIMONIOCULTURALINMATERIAL_10',
+            onEachFeature: pop_PATRIMONIOCULTURALINMATERIAL_10,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PATRIMONIOCULTURALINMATERIAL_10_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PATRIMONIOCULTURALINMATERIAL_10_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PATRIMONIOCULTURALINMATERIAL_10);
+        map.addLayer(layer_PATRIMONIOCULTURALINMATERIAL_10);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h2>Desarrollo social, fortalecimiento y salvaguarda del patrimonio cultural</h2>';
+            };
+            title.addTo(map);
+            var abstract = new L.Control({'position':'topright'});
+            abstract.onAdd = function (map) {
+                this._div = L.DomUtil.create('div',
+                'leaflet-control abstract');
+                this._div.id = 'abstract'
+
+                    abstract.show();
+                    return this._div;
+                };
+                abstract.show = function () {
+                    this._div.classList.remove("abstract");
+                    this._div.classList.add("abstractUncollapsed");
+                    this._div.innerHTML = 'Mapa interactivo sobre salvaguarda del patrimonio cultural, incluye la identificación de manifestaciones inmateriales y aspectos que componen el paisaje histórico urbano a través de paisajes culturales';
+            };
+            abstract.addTo(map);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'PATRIMONIO CULTURAL INMATERIAL<br /><table><tr><td style="text-align: center;"><img src="legend/PATRIMONIOCULTURALINMATERIAL_10_aTradicionesyexpresionesorales0.png" /></td><td>a) Tradiciones y expresiones orales</td></tr><tr><td style="text-align: center;"><img src="legend/PATRIMONIOCULTURALINMATERIAL_10_bArtesdelespectáculo1.png" /></td><td>b) Artes del espectáculo</td></tr><tr><td style="text-align: center;"><img src="legend/PATRIMONIOCULTURALINMATERIAL_10_cUsossocialesritualesyactosfestivos2.png" /></td><td>c) Usos sociales, rituales y actos festivos</td></tr><tr><td style="text-align: center;"><img src="legend/PATRIMONIOCULTURALINMATERIAL_10_dConocimientosyusosrelacionadosconlanaturaleza3.png" /></td><td>d) Conocimientos y usos relacionados con la naturaleza</td></tr><tr><td style="text-align: center;"><img src="legend/PATRIMONIOCULTURALINMATERIAL_10_eTécnicasartesanalestradicionales4.png" /></td><td>e) Técnicas artesanales tradicionales.</td></tr></table>': layer_PATRIMONIOCULTURALINMATERIAL_10,'PAISAJE HISTÓRICO URBANO (FODA)<br /><table><tr><td style="text-align: center;"><img src="legend/PAISAJEHISTRICOURBANOFODA_9_Amenazas0.png" /></td><td>Amenazas</td></tr><tr><td style="text-align: center;"><img src="legend/PAISAJEHISTRICOURBANOFODA_9_Debilidades1.png" /></td><td>Debilidades</td></tr><tr><td style="text-align: center;"><img src="legend/PAISAJEHISTRICOURBANOFODA_9_Fortalezas2.png" /></td><td>Fortalezas</td></tr><tr><td style="text-align: center;"><img src="legend/PAISAJEHISTRICOURBANOFODA_9_Oportunidades3.png" /></td><td>Oportunidades</td></tr></table>': layer_PAISAJEHISTRICOURBANOFODA_9,'<img src="legend/PARADEROS_8.png" /> PARADEROS': layer_PARADEROS_8,'<img src="legend/ESTACIONES_7.png" /> ESTACIONES': layer_ESTACIONES_7,'RUTA TREN MAYA<br /><table><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo1Selvauno0.png" /></td><td>Tramo 1 Selva uno</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo2Golfouno1.png" /></td><td>Tramo 2 Golfo uno</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo3Golfodos2.png" /></td><td>Tramo 3 Golfo dos</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo4Golfotres3.png" /></td><td>Tramo 4 Golfo tres</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo5Caribedos4.png" /></td><td>Tramo 5 Caribe dos</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo6Caribeuno5.png" /></td><td>Tramo 6 Caribe uno</td></tr><tr><td style="text-align: center;"><img src="legend/RUTATRENMAYA_6_Tramo7Selvados6.png" /></td><td>Tramo 7 Selva dos</td></tr></table>': layer_RUTATRENMAYA_6,'LENGUAS MAYAS<br /><table><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Batsikop0.png" /></td><td>Bats’ik’op</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Chol1.png" /></td><td>Ch’ol</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_ChontalDeTabasco2.png" /></td><td>Chontal De Tabasco</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Ixil3.png" /></td><td>Ixil</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_JachTaan4.png" /></td><td>Jach-T’aan</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_JakaltekoPopti5.png" /></td><td>Jakalteko-Popti’</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Kiche6.png" /></td><td>K’iche’</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Kaqchikel7.png" /></td><td>Kaqchikel</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Koti8.png" /></td><td>Koti’</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Kuti9.png" /></td><td>Kuti\'</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Maayataan10.png" /></td><td>Maayat’aan</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Qanjobal11.png" /></td><td>Q’anjob’al</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Qeqchí12.png" /></td><td>Q’eqchí</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Qatok13.png" /></td><td>Qato’k</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Qyoolawateco14.png" /></td><td>Qyool (awateco)</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_QyoolMam15.png" /></td><td>Qyool (Mam)</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Teko16.png" /></td><td>Teko</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_TojolAbal17.png" /></td><td>Tojol-Ab’al</td></tr><tr><td style="text-align: center;"><img src="legend/LENGUASMAYAS_5_Tseltal18.png" /></td><td>Tseltal</td></tr></table>': layer_LENGUASMAYAS_5,'<img src="legend/PAISAJESCULTURALESFODA_4.png" /> PAISAJES CULTURALES (FODA)': layer_PAISAJESCULTURALESFODA_4,'<img src="legend/MUNICIPIOS_3.png" /> MUNICIPIOS': layer_MUNICIPIOS_3,'<img src="legend/DIVISINESTATAL_2.png" /> DIVISIÓN ESTATAL': layer_DIVISINESTATAL_2,"VISTA DE SATELITE": layer_VISTADESATELITE_1,"VISTA DE VIALIDADES": layer_VISTADEVIALIDADES_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_PAISAJESCULTURALESFODA_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Paisaje'] !== null?String('<div style="color: #000000; font-size: 14pt; font-family: \'Intro\', sans-serif;">' + layer.feature.properties['Paisaje']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_PAISAJESCULTURALESFODA_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_MUNICIPIOS_3,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Municipio'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"PCI AMBIT": "str","PCI MANIF": "str","CONCEP PUH": "str","LENGUA": "str"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+        var i = 0;
+        layer_PAISAJESCULTURALESFODA_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Paisaje'] !== null?String('<div style="color: #000000; font-size: 14pt; font-family: \'Intro\', sans-serif;">' + layer.feature.properties['Paisaje']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_PAISAJESCULTURALESFODA_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_PCIAMBIT = document.createElement('div');
+            div_PCIAMBIT.id = "div_PCIAMBIT";
+            div_PCIAMBIT.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PCIAMBIT);
+            sel_PCIAMBIT = document.createElement('select');
+            sel_PCIAMBIT.multiple = true;
+            sel_PCIAMBIT.size = 5;
+            sel_PCIAMBIT.id = "sel_PCIAMBIT";
+            var PCIAMBIT_options_str = "<option value='' unselected></option>";
+            sel_PCIAMBIT.onchange = function(){filterFunc()};
+            PCIAMBIT_options_str  += '<option value="a) Tradiciones y expresiones orales">a) Tradiciones y expresiones orales</option>';
+            PCIAMBIT_options_str  += '<option value="b) Artes del espectáculo">b) Artes del espectáculo</option>';
+            PCIAMBIT_options_str  += '<option value="c) Usos sociales, rituales y actos festivos">c) Usos sociales, rituales y actos festivos</option>';
+            PCIAMBIT_options_str  += '<option value="d) Conocimientos y usos relacionados con la naturaleza">d) Conocimientos y usos relacionados con la naturaleza</option>';
+            PCIAMBIT_options_str  += '<option value="e) Técnicas artesanales tradicionales.">e) Técnicas artesanales tradicionales.</option>';
+            sel_PCIAMBIT.innerHTML = PCIAMBIT_options_str;
+            div_PCIAMBIT.appendChild(sel_PCIAMBIT);
+            var lab_PCIAMBIT = document.createElement('div');
+            lab_PCIAMBIT.innerHTML = 'PCI AMBIT';
+            lab_PCIAMBIT.className = 'filterlabel';
+            div_PCIAMBIT.appendChild(lab_PCIAMBIT);
+            var reset_PCIAMBIT = document.createElement('div');
+            reset_PCIAMBIT.innerHTML = 'clear filter';
+            reset_PCIAMBIT.className = 'filterlabel';
+            reset_PCIAMBIT.onclick = function() {
+                var options = document.getElementById("sel_PCIAMBIT").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_PCIAMBIT.appendChild(reset_PCIAMBIT);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_PCIMANIF = document.createElement('div');
+            div_PCIMANIF.id = "div_PCIMANIF";
+            div_PCIMANIF.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PCIMANIF);
+            sel_PCIMANIF = document.createElement('select');
+            sel_PCIMANIF.multiple = true;
+            sel_PCIMANIF.size = 10;
+            sel_PCIMANIF.id = "sel_PCIMANIF";
+            var PCIMANIF_options_str = "<option value='' unselected></option>";
+            sel_PCIMANIF.onchange = function(){filterFunc()};
+            PCIMANIF_options_str  += '<option value="Alfarería">Alfarería</option>';
+            PCIMANIF_options_str  += '<option value="Alfarería tradicional de Mama">Alfarería tradicional de Mama</option>';
+            PCIMANIF_options_str  += '<option value="Altares Día de muertos">Altares Día de muertos</option>';
+            PCIMANIF_options_str  += '<option value="Bordado Ch&apos;ol">Bordado Ch&apos;ol</option>';
+            PCIMANIF_options_str  += '<option value="Bordado a mano y maquina">Bordado a mano y maquina</option>';
+            PCIMANIF_options_str  += '<option value="Bordados y textiles">Bordados y textiles</option>';
+            PCIMANIF_options_str  += '<option value="Carnaval">Carnaval</option>';
+            PCIMANIF_options_str  += '<option value="Carnaval de Tenosique, Danza del Pochó">Carnaval de Tenosique, Danza del Pochó</option>';
+            PCIMANIF_options_str  += '<option value="Casa maya">Casa maya</option>';
+            PCIMANIF_options_str  += '<option value="Cebollitas de Ixil">Cebollitas de Ixil</option>';
+            PCIMANIF_options_str  += '<option value="Centros Ceremoniales Mayas Máacewal">Centros Ceremoniales Mayas Máacewal</option>';
+            PCIMANIF_options_str  += '<option value="Ceremonia de la Santa Cruz">Ceremonia de la Santa Cruz</option>';
+            PCIMANIF_options_str  += '<option value="Ceremonia ritual del Balché">Ceremonia ritual del Balché</option>';
+            PCIMANIF_options_str  += '<option value="Cestería (bejuco)">Cestería (bejuco)</option>';
+            PCIMANIF_options_str  += '<option value="Charrería">Charrería</option>';
+            PCIMANIF_options_str  += '<option value="Comida tradicional yucateca">Comida tradicional yucateca</option>';
+            PCIMANIF_options_str  += '<option value="Cosecha de sal">Cosecha de sal</option>';
+            PCIMANIF_options_str  += '<option value="Danza de Pastores o Danzas de Abraham e Isaac">Danza de Pastores o Danzas de Abraham e Isaac</option>';
+            PCIMANIF_options_str  += '<option value="Danza de los comales">Danza de los comales</option>';
+            PCIMANIF_options_str  += '<option value="Elaboración de máscaras de Cojoé de la Danza del Pochó">Elaboración de máscaras de Cojoé de la Danza del Pochó</option>';
+            PCIMANIF_options_str  += '<option value="Elaboración de productos con fibra de henequén">Elaboración de productos con fibra de henequén</option>';
+            PCIMANIF_options_str  += '<option value="Enrrama">Enrrama</option>';
+            PCIMANIF_options_str  += '<option value="Festividades religiosas (patronales)">Festividades religiosas (patronales)</option>';
+            PCIMANIF_options_str  += '<option value="Fiest patronal dedicada a la Santa Cruz Tuun">Fiest patronal dedicada a la Santa Cruz Tuun</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal Virgen de la Asunción">Fiesta patronal Virgen de la Asunción</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal Virgen de la Asunción de la comunidad">Fiesta patronal Virgen de la Asunción de la comunidad</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal de Santon Domingo de Guzmán">Fiesta patronal de Santon Domingo de Guzmán</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal dedicada a San Pedro González Telmo">Fiesta patronal dedicada a San Pedro González Telmo</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal dedicada a la Virgen de Santa Inés, Dzitás">Fiesta patronal dedicada a la Virgen de Santa Inés, Dzitás</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal dedicada a la Virgen de la Concepción">Fiesta patronal dedicada a la Virgen de la Concepción</option>';
+            PCIMANIF_options_str  += '<option value="Fiesta patronal dedicada al Cristo de la Transfiguración de Chumayel">Fiesta patronal dedicada al Cristo de la Transfiguración de Chumayel</option>';
+            PCIMANIF_options_str  += '<option value="Fiestas patronales">Fiestas patronales</option>';
+            PCIMANIF_options_str  += '<option value="Fiestas patronales peninsulares">Fiestas patronales peninsulares</option>';
+            PCIMANIF_options_str  += '<option value="Flor de cera o flor de luz lol cib en Yaxkukul Nolo">Flor de cera o flor de luz lol cib en Yaxkukul Nolo</option>';
+            PCIMANIF_options_str  += '<option value="Hanal pixan">Hanal pixan</option>';
+            PCIMANIF_options_str  += '<option value="Hanal pixán">Hanal pixán</option>';
+            PCIMANIF_options_str  += '<option value="Jarana maya">Jarana maya</option>';
+            PCIMANIF_options_str  += '<option value="Joyería de oro esmaltado">Joyería de oro esmaltado</option>';
+            PCIMANIF_options_str  += '<option value="Juegos tradicionales (juego de pelota)">Juegos tradicionales (juego de pelota)</option>';
+            PCIMANIF_options_str  += '<option value="K’uk’umal Soñ/Danza de la pluma de quetzal">K’uk’umal Soñ/Danza de la pluma de quetzal</option>';
+            PCIMANIF_options_str  += '<option value="Lengua Maya">Lengua Maya</option>';
+            PCIMANIF_options_str  += '<option value="Lengua maya">Lengua maya</option>';
+            PCIMANIF_options_str  += '<option value="Lengua maya como medio de transmisión de tradiciones orales">Lengua maya como medio de transmisión de tradiciones orales</option>';
+            PCIMANIF_options_str  += '<option value="Lengua yokotan">Lengua yokotan</option>';
+            PCIMANIF_options_str  += '<option value="Leyenda de la Diosa Yokotán">Leyenda de la Diosa Yokotán</option>';
+            PCIMANIF_options_str  += '<option value="Limpieza de los santos restos">Limpieza de los santos restos</option>';
+            PCIMANIF_options_str  += '<option value="Los Abrahames de Dzitnup">Los Abrahames de Dzitnup</option>';
+            PCIMANIF_options_str  += '<option value="Lotería campechana">Lotería campechana</option>';
+            PCIMANIF_options_str  += '<option value="Mariachi">Mariachi</option>';
+            PCIMANIF_options_str  += '<option value="Maya Pax, música y danza de los mayas masewales">Maya Pax, música y danza de los mayas masewales</option>';
+            PCIMANIF_options_str  += '<option value="Medicina tradicional">Medicina tradicional</option>';
+            PCIMANIF_options_str  += '<option value="Meliponicultura">Meliponicultura</option>';
+            PCIMANIF_options_str  += '<option value="Milpa maya">Milpa maya</option>';
+            PCIMANIF_options_str  += '<option value="Música de San Miguel Arcangel">Música de San Miguel Arcangel</option>';
+            PCIMANIF_options_str  += '<option value="Música de tamborileros">Música de tamborileros</option>';
+            PCIMANIF_options_str  += '<option value="Música y danza ch&apos;ol de Bachajón">Música y danza ch&apos;ol de Bachajón</option>';
+            PCIMANIF_options_str  += '<option value="Producción de cacao">Producción de cacao</option>';
+            PCIMANIF_options_str  += '<option value="Recetas de la gastronomía maya y técnicas de cocción">Recetas de la gastronomía maya y técnicas de cocción</option>';
+            PCIMANIF_options_str  += '<option value="Recolección tradicional del maquech y su leyenda">Recolección tradicional del maquech y su leyenda</option>';
+            PCIMANIF_options_str  += '<option value="Recorrido de La Vara de San Juan">Recorrido de La Vara de San Juan</option>';
+            PCIMANIF_options_str  += '<option value="Representación viacrucis">Representación viacrucis</option>';
+            PCIMANIF_options_str  += '<option value="Ritual de pesca de la sardina ciega">Ritual de pesca de la sardina ciega</option>';
+            PCIMANIF_options_str  += '<option value="Ritual de promesa del ojo de agua">Ritual de promesa del ojo de agua</option>';
+            PCIMANIF_options_str  += '<option value="Ritualidad doméstica">Ritualidad doméstica</option>';
+            PCIMANIF_options_str  += '<option value="Saberes constructivos">Saberes constructivos</option>';
+            PCIMANIF_options_str  += '<option value="Saberes pesqueros">Saberes pesqueros</option>';
+            PCIMANIF_options_str  += '<option value="Servicios ecosistemicos de manglares y humedales">Servicios ecosistemicos de manglares y humedales</option>';
+            PCIMANIF_options_str  += '<option value="Talabartería">Talabartería</option>';
+            PCIMANIF_options_str  += '<option value="Tallado de madera">Tallado de madera</option>';
+            PCIMANIF_options_str  += '<option value="Tallado de piedra">Tallado de piedra</option>';
+            PCIMANIF_options_str  += '<option value="Teatro maya de la localidad de Xocén">Teatro maya de la localidad de Xocén</option>';
+            PCIMANIF_options_str  += '<option value="Tejido de jipijapa">Tejido de jipijapa</option>';
+            PCIMANIF_options_str  += '<option value="Tejidos con palma de huano (sombrero jipi)">Tejidos con palma de huano (sombrero jipi)</option>';
+            PCIMANIF_options_str  += '<option value="Tinte y pigmento Azul Maya Ch´oj">Tinte y pigmento Azul Maya Ch´oj</option>';
+            PCIMANIF_options_str  += '<option value="Trova yucateca">Trova yucateca</option>';
+            PCIMANIF_options_str  += '<option value="Técnicas de bordados de indumentarias">Técnicas de bordados de indumentarias</option>';
+            PCIMANIF_options_str  += '<option value="U Jáanal Pixanóob. Festividad maya peninsular dedicada a los muertos.">U Jáanal Pixanóob. Festividad maya peninsular dedicada a los muertos.</option>';
+            PCIMANIF_options_str  += '<option value="Urdido de hamaca">Urdido de hamaca</option>';
+            PCIMANIF_options_str  += '<option value="Urdido de hamacas">Urdido de hamacas</option>';
+            PCIMANIF_options_str  += '<option value="Vaquería">Vaquería</option>';
+            PCIMANIF_options_str  += '<option value="Wakax Pojp durante el Carnaval Ch&apos;ol">Wakax Pojp durante el Carnaval Ch&apos;ol</option>';
+            PCIMANIF_options_str  += '<option value="Zona arqueológica de Comalcalco">Zona arqueológica de Comalcalco</option>';
+            sel_PCIMANIF.innerHTML = PCIMANIF_options_str;
+            div_PCIMANIF.appendChild(sel_PCIMANIF);
+            var lab_PCIMANIF = document.createElement('div');
+            lab_PCIMANIF.innerHTML = 'PCI MANIF';
+            lab_PCIMANIF.className = 'filterlabel';
+            div_PCIMANIF.appendChild(lab_PCIMANIF);
+            var reset_PCIMANIF = document.createElement('div');
+            reset_PCIMANIF.innerHTML = 'clear filter';
+            reset_PCIMANIF.className = 'filterlabel';
+            reset_PCIMANIF.onclick = function() {
+                var options = document.getElementById("sel_PCIMANIF").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_PCIMANIF.appendChild(reset_PCIMANIF);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_CONCEPPUH = document.createElement('div');
+            div_CONCEPPUH.id = "div_CONCEPPUH";
+            div_CONCEPPUH.className= "filterselect";
+            document.getElementById("menu").appendChild(div_CONCEPPUH);
+            sel_CONCEPPUH = document.createElement('select');
+            sel_CONCEPPUH.multiple = true;
+            sel_CONCEPPUH.size = 10;
+            sel_CONCEPPUH.id = "sel_CONCEPPUH";
+            var CONCEPPUH_options_str = "<option value='' unselected></option>";
+            sel_CONCEPPUH.onchange = function(){filterFunc()};
+            CONCEPPUH_options_str  += '<option value="Abandono de manifestaciones del PCI debido al desinteres por parte de jóvenes y falta de cohesión social.">Abandono de manifestaciones del PCI debido al desinteres por parte de jóvenes y falta de cohesión social.</option>';
+            CONCEPPUH_options_str  += '<option value="Abandono, saqueo, tráfico y/o destrucción del patrimonio arqueológico">Abandono, saqueo, tráfico y/o destrucción del patrimonio arqueológico</option>';
+            CONCEPPUH_options_str  += '<option value="Actualización de instrumentos de planeación territorial y/o normas de construcción para la conservación del patrimonio">Actualización de instrumentos de planeación territorial y/o normas de construcción para la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Actualización de planes de desarrollo urbano">Actualización de planes de desarrollo urbano</option>';
+            CONCEPPUH_options_str  += '<option value="Adaptación al medio natural">Adaptación al medio natural</option>';
+            CONCEPPUH_options_str  += '<option value="Adaptación de las tipologías y técnicas constructivas">Adaptación de las tipologías y técnicas constructivas</option>';
+            CONCEPPUH_options_str  += '<option value="Afectaciones en la producción de tierra y prácticas de PCI">Afectaciones en la producción de tierra y prácticas de PCI</option>';
+            CONCEPPUH_options_str  += '<option value="Afloramiento continuo de rocas calizas">Afloramiento continuo de rocas calizas</option>';
+            CONCEPPUH_options_str  += '<option value="Alteraciones en los usos y tipologías arquitectonicas">Alteraciones en los usos y tipologías arquitectonicas</option>';
+            CONCEPPUH_options_str  += '<option value="Aplicación de energias alternativas y mecanismos de sostenibilidad">Aplicación de energias alternativas y mecanismos de sostenibilidad</option>';
+            CONCEPPUH_options_str  += '<option value="Apropiación cultural">Apropiación cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Aprovechamiento de los programas públicos.">Aprovechamiento de los programas públicos.</option>';
+            CONCEPPUH_options_str  += '<option value="Aprovechamiento sostenible de los sistemas kársticos">Aprovechamiento sostenible de los sistemas kársticos</option>';
+            CONCEPPUH_options_str  += '<option value="Aumento de la desigualdad social">Aumento de la desigualdad social</option>';
+            CONCEPPUH_options_str  += '<option value="Aumento en la población flotante">Aumento en la población flotante</option>';
+            CONCEPPUH_options_str  += '<option value="Cambio climático">Cambio climático</option>';
+            CONCEPPUH_options_str  += '<option value="Capacitación de comunidades y actores locales">Capacitación de comunidades y actores locales</option>';
+            CONCEPPUH_options_str  += '<option value="Cinturones de pobreza">Cinturones de pobreza</option>';
+            CONCEPPUH_options_str  += '<option value="Colaboración con instituciones educativas para brindar asesoramiento">Colaboración con instituciones educativas para brindar asesoramiento</option>';
+            CONCEPPUH_options_str  += '<option value="Colaboración con organismos para la conservación del patrimonio">Colaboración con organismos para la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Competencia desigual entre sector privado y el servicio local.">Competencia desigual entre sector privado y el servicio local.</option>';
+            CONCEPPUH_options_str  += '<option value="Comunicación via redes de infraestructura con localidades y sitios cercanas.">Comunicación via redes de infraestructura con localidades y sitios cercanas.</option>';
+            CONCEPPUH_options_str  += '<option value="Concientizar sobre los impactos del cambio climático">Concientizar sobre los impactos del cambio climático</option>';
+            CONCEPPUH_options_str  += '<option value="Conservación adecuada de la manufactura del patrimonio cultural">Conservación adecuada de la manufactura del patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Conservación de lenguas indígenas">Conservación de lenguas indígenas</option>';
+            CONCEPPUH_options_str  += '<option value="Conservación de técnicas constructivas tradicionales">Conservación de técnicas constructivas tradicionales</option>';
+            CONCEPPUH_options_str  += '<option value="Consolidación de infraestructura para la protección del patrimonio">Consolidación de infraestructura para la protección del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Consolidación de la económia rural y vida comunitaria y generación de nuevos empleos">Consolidación de la económia rural y vida comunitaria y generación de nuevos empleos</option>';
+            CONCEPPUH_options_str  += '<option value="Contaminantes.">Contaminantes.</option>';
+            CONCEPPUH_options_str  += '<option value="Crecimiendo demográfico y urbano desordenado.">Crecimiendo demográfico y urbano desordenado.</option>';
+            CONCEPPUH_options_str  += '<option value="Crecimiento demógrafico y urbano desordenado">Crecimiento demógrafico y urbano desordenado</option>';
+            CONCEPPUH_options_str  += '<option value="Crecimiento económico constante con inversión fija">Crecimiento económico constante con inversión fija</option>';
+            CONCEPPUH_options_str  += '<option value="Crecimiento urbano poco acelerado">Crecimiento urbano poco acelerado</option>';
+            CONCEPPUH_options_str  += '<option value="Declaratoria de la UNESCO como patrimonio mundial">Declaratoria de la UNESCO como patrimonio mundial</option>';
+            CONCEPPUH_options_str  += '<option value="Deficiencia de movilidad">Deficiencia de movilidad</option>';
+            CONCEPPUH_options_str  += '<option value="Deforestación y perdida del habitat en razón de la urbanización">Deforestación y perdida del habitat en razón de la urbanización</option>';
+            CONCEPPUH_options_str  += '<option value="Demanda creciente de productos orgánicos">Demanda creciente de productos orgánicos</option>';
+            CONCEPPUH_options_str  += '<option value="Depredación de especies">Depredación de especies</option>';
+            CONCEPPUH_options_str  += '<option value="Desaparición del patrimonio">Desaparición del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo de infraestructura para el tratamiento de residuos">Desarrollo de infraestructura para el tratamiento de residuos</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo de inventarios">Desarrollo de inventarios</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo de nuevas investigaciones">Desarrollo de nuevas investigaciones</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo de programas locales de educación y fortalecimiento social o medioambiental">Desarrollo de programas locales de educación y fortalecimiento social o medioambiental</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo del PCI a través del conocimiento sobre la cultura y tradiciones">Desarrollo del PCI a través del conocimiento sobre la cultura y tradiciones</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo turístico (ecoturismo, agroturismo, turismo  arqueológico, turismo comunitario)">Desarrollo turístico (ecoturismo, agroturismo, turismo  arqueológico, turismo comunitario)</option>';
+            CONCEPPUH_options_str  += '<option value="Desarrollo turístico desorganizado">Desarrollo turístico desorganizado</option>';
+            CONCEPPUH_options_str  += '<option value="Desconocimiento en los servicios y/o actividades culturales.">Desconocimiento en los servicios y/o actividades culturales.</option>';
+            CONCEPPUH_options_str  += '<option value="Desfavorables condiciones de conservación">Desfavorables condiciones de conservación</option>';
+            CONCEPPUH_options_str  += '<option value="Desincronia entre ciclos de producción y venta">Desincronia entre ciclos de producción y venta</option>';
+            CONCEPPUH_options_str  += '<option value="Desinteres por el patrimonio cultural">Desinteres por el patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Deterioro del patrimonio natural y/o cultural">Deterioro del patrimonio natural y/o cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Difusión de resultados, de los valores del patrimonio y/o de los avances del proyecto">Difusión de resultados, de los valores del patrimonio y/o de los avances del proyecto</option>';
+            CONCEPPUH_options_str  += '<option value="Difusión del patrimonio y vinculación comunitaria">Difusión del patrimonio y vinculación comunitaria</option>';
+            CONCEPPUH_options_str  += '<option value="Discriminación">Discriminación</option>';
+            CONCEPPUH_options_str  += '<option value="Disminución en el turismo de pernocta">Disminución en el turismo de pernocta</option>';
+            CONCEPPUH_options_str  += '<option value="Disminución en las especies nativas">Disminución en las especies nativas</option>';
+            CONCEPPUH_options_str  += '<option value="Disparidad en el acceso a programas sociales en municipios vecinos.">Disparidad en el acceso a programas sociales en municipios vecinos.</option>';
+            CONCEPPUH_options_str  += '<option value="Disponibilidad y aprovechamiento histórico sostenible de los recursos">Disponibilidad y aprovechamiento histórico sostenible de los recursos</option>';
+            CONCEPPUH_options_str  += '<option value="Diversidad de expresiones del patrimonio cultural">Diversidad de expresiones del patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Diversidad en flora y fauna">Diversidad en flora y fauna</option>';
+            CONCEPPUH_options_str  += '<option value="Diversidad en flora y fauna.">Diversidad en flora y fauna.</option>';
+            CONCEPPUH_options_str  += '<option value="Especulación inmobiliaria, gentrificación y acaparación de tierras">Especulación inmobiliaria, gentrificación y acaparación de tierras</option>';
+            CONCEPPUH_options_str  += '<option value="Extracción de minerales">Extracción de minerales</option>';
+            CONCEPPUH_options_str  += '<option value="Falsos históricos">Falsos históricos</option>';
+            CONCEPPUH_options_str  += '<option value="Falta  de materia prima para el desarrollo de manifestaciones del PCI">Falta  de materia prima para el desarrollo de manifestaciones del PCI</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de acceso a la información">Falta de acceso a la información</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de apropiación comunitaria">Falta de apropiación comunitaria</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de capacitación de especialistas para la conservación del patrimonio">Falta de capacitación de especialistas para la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de capacitación en nuevos productores artesanales">Falta de capacitación en nuevos productores artesanales</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de condiciones de mercado para los productos artesanales">Falta de condiciones de mercado para los productos artesanales</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de conocimiento sobre la legislación de protección aplicable">Falta de conocimiento sobre la legislación de protección aplicable</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de consolidación de la oferta cultural">Falta de consolidación de la oferta cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de difusión.">Falta de difusión.</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de estudios multidisciplinarios">Falta de estudios multidisciplinarios</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de infraestructura turística necesaria">Falta de infraestructura turística necesaria</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de inventarios">Falta de inventarios</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de investigación">Falta de investigación</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de mantenimiento">Falta de mantenimiento</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de mecanismos eficaces para la capacitación de productores y aumento de intermediarios para la compra y venta de productos">Falta de mecanismos eficaces para la capacitación de productores y aumento de intermediarios para la compra y venta de productos</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de normatividad">Falta de normatividad</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de ordenamiento territorial y demógrafico">Falta de ordenamiento territorial y demógrafico</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de ordenamiento territorial y demógrafico para la conservación del patrimonio">Falta de ordenamiento territorial y demógrafico para la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de participación política en la conservación del patrimonio">Falta de participación política en la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de recursos económicos y/o humanos, e impedimentos logísticos / administrativos">Falta de recursos económicos y/o humanos, e impedimentos logísticos / administrativos</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de recursos y certificaciones externas.">Falta de recursos y certificaciones externas.</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de seguimiento de proyectos y/o programas">Falta de seguimiento de proyectos y/o programas</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de valoración de las manifestaciones del PCI por parte de la localidad">Falta de valoración de las manifestaciones del PCI por parte de la localidad</option>';
+            CONCEPPUH_options_str  += '<option value="Falta de visibilidad de grupos culturales, artísticos o artesanales, así como de las manifestaciones del PCI">Falta de visibilidad de grupos culturales, artísticos o artesanales, así como de las manifestaciones del PCI</option>';
+            CONCEPPUH_options_str  += '<option value="Falta en el cultivo de especies nativas">Falta en el cultivo de especies nativas</option>';
+            CONCEPPUH_options_str  += '<option value="Fomento a la investigación y divulgación">Fomento a la investigación y divulgación</option>';
+            CONCEPPUH_options_str  += '<option value="Generación de nuevos itinerarios para la conservación del patrimonio cultural">Generación de nuevos itinerarios para la conservación del patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Gran oferta y capacidad de hospedaje">Gran oferta y capacidad de hospedaje</option>';
+            CONCEPPUH_options_str  += '<option value="Heterogeneidad en los ecosistemas">Heterogeneidad en los ecosistemas</option>';
+            CONCEPPUH_options_str  += '<option value="Icertidumbre en tenencia de lal tierra">Icertidumbre en tenencia de lal tierra</option>';
+            CONCEPPUH_options_str  += '<option value="Idependencia de las comunidades en la práctica del PCI">Idependencia de las comunidades en la práctica del PCI</option>';
+            CONCEPPUH_options_str  += '<option value="Implementación de pasos de fauna">Implementación de pasos de fauna</option>';
+            CONCEPPUH_options_str  += '<option value="Incidencia de fenómenos naturales / desastres">Incidencia de fenómenos naturales / desastres</option>';
+            CONCEPPUH_options_str  += '<option value="Incremento de la demanda turística desordenada">Incremento de la demanda turística desordenada</option>';
+            CONCEPPUH_options_str  += '<option value="Incremento en la derrama económica.">Incremento en la derrama económica.</option>';
+            CONCEPPUH_options_str  += '<option value="Infraestructura turística">Infraestructura turística</option>';
+            CONCEPPUH_options_str  += '<option value="Inseguridad">Inseguridad</option>';
+            CONCEPPUH_options_str  += '<option value="Integración de expresiones culturales en los procesos de reconocimiento cultural">Integración de expresiones culturales en los procesos de reconocimiento cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Interconexión con ciudades vecinas y/o cercanas">Interconexión con ciudades vecinas y/o cercanas</option>';
+            CONCEPPUH_options_str  += '<option value="Interes creciente en prácticas tradicionales y /o artesanales">Interes creciente en prácticas tradicionales y /o artesanales</option>';
+            CONCEPPUH_options_str  += '<option value="Interes por parte de jovenes en la producción tradicional">Interes por parte de jovenes en la producción tradicional</option>';
+            CONCEPPUH_options_str  += '<option value="Interés del mercado internacional en productos locales">Interés del mercado internacional en productos locales</option>';
+            CONCEPPUH_options_str  += '<option value="Introducción al mercado en linea">Introducción al mercado en linea</option>';
+            CONCEPPUH_options_str  += '<option value="Inventariado de bienes">Inventariado de bienes</option>';
+            CONCEPPUH_options_str  += '<option value="Inversión nacional y extranjera">Inversión nacional y extranjera</option>';
+            CONCEPPUH_options_str  += '<option value="Inversión pública desequitativa">Inversión pública desequitativa</option>';
+            CONCEPPUH_options_str  += '<option value="Involucramiento de autoridades en el desarrollo del patrimonio">Involucramiento de autoridades en el desarrollo del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Involucramiento de jovenes en prácticas tradicionales">Involucramiento de jovenes en prácticas tradicionales</option>';
+            CONCEPPUH_options_str  += '<option value="Involucramiento de las autoridades con comunidades">Involucramiento de las autoridades con comunidades</option>';
+            CONCEPPUH_options_str  += '<option value="Mayor producción de cultivos">Mayor producción de cultivos</option>';
+            CONCEPPUH_options_str  += '<option value="Mejoramiento de infrastructura e instalaciones">Mejoramiento de infrastructura e instalaciones</option>';
+            CONCEPPUH_options_str  += '<option value="Mejorar las condiciones administrativas y financieras para la conservación del patrimonio">Mejorar las condiciones administrativas y financieras para la conservación del patrimonio</option>';
+            CONCEPPUH_options_str  += '<option value="Migración">Migración</option>';
+            CONCEPPUH_options_str  += '<option value="Migración.">Migración.</option>';
+            CONCEPPUH_options_str  += '<option value="Modificación en las manifestaciones del PCI">Modificación en las manifestaciones del PCI</option>';
+            CONCEPPUH_options_str  += '<option value="Necesidad de desarrollo en infraestructura básica">Necesidad de desarrollo en infraestructura básica</option>';
+            CONCEPPUH_options_str  += '<option value="Necesidad de infraestructura para el tratamiento de residuos.">Necesidad de infraestructura para el tratamiento de residuos.</option>';
+            CONCEPPUH_options_str  += '<option value="Necesidad de integrar patrimonio naútico">Necesidad de integrar patrimonio naútico</option>';
+            CONCEPPUH_options_str  += '<option value="Necesidad en el rescate de lenguas indígenas">Necesidad en el rescate de lenguas indígenas</option>';
+            CONCEPPUH_options_str  += '<option value="Oferta turística diversa">Oferta turística diversa</option>';
+            CONCEPPUH_options_str  += '<option value="Patrimonio cultural en buen estado de conservación">Patrimonio cultural en buen estado de conservación</option>';
+            CONCEPPUH_options_str  += '<option value="Patrimonio en riesgo de desaparición">Patrimonio en riesgo de desaparición</option>';
+            CONCEPPUH_options_str  += '<option value="Perdida de habitabilidad en centros históricos y deterioro de los mismos">Perdida de habitabilidad en centros históricos y deterioro de los mismos</option>';
+            CONCEPPUH_options_str  += '<option value="Perdida de lenguas indígenas">Perdida de lenguas indígenas</option>';
+            CONCEPPUH_options_str  += '<option value="Personal y especialistas capacitados">Personal y especialistas capacitados</option>';
+            CONCEPPUH_options_str  += '<option value="Población flotante">Población flotante</option>';
+            CONCEPPUH_options_str  += '<option value="Poca consolidación en el sistema de manejo de residuos">Poca consolidación en el sistema de manejo de residuos</option>';
+            CONCEPPUH_options_str  += '<option value="Poca participación social">Poca participación social</option>';
+            CONCEPPUH_options_str  += '<option value="Políticas públicas que suplen, alteran o ponen en riesgo las actividades tradicionales">Políticas públicas que suplen, alteran o ponen en riesgo las actividades tradicionales</option>';
+            CONCEPPUH_options_str  += '<option value="Posibilidad de depredación de especies">Posibilidad de depredación de especies</option>';
+            CONCEPPUH_options_str  += '<option value="Presencia de acuiferos">Presencia de acuiferos</option>';
+            CONCEPPUH_options_str  += '<option value="Problemas en vías terrestres de comunicación, así como en otros tipos de infraestructura.">Problemas en vías terrestres de comunicación, así como en otros tipos de infraestructura.</option>';
+            CONCEPPUH_options_str  += '<option value="Producción a partir de prácticas tradicionales.">Producción a partir de prácticas tradicionales.</option>';
+            CONCEPPUH_options_str  += '<option value="Protección legal de los bienes culturales y/o bioculturales mediante la normativa nacional o internacional">Protección legal de los bienes culturales y/o bioculturales mediante la normativa nacional o internacional</option>';
+            CONCEPPUH_options_str  += '<option value="Proyecto sostenible mediante nichos de mercado para productos tradicionales">Proyecto sostenible mediante nichos de mercado para productos tradicionales</option>';
+            CONCEPPUH_options_str  += '<option value="Recomposición de la imagen urbana">Recomposición de la imagen urbana</option>';
+            CONCEPPUH_options_str  += '<option value="Reforestación de flora nativa y restauración del ecosístema">Reforestación de flora nativa y restauración del ecosístema</option>';
+            CONCEPPUH_options_str  += '<option value="Reglamentos y/o instrumentos de planeación poco adecuados o desactualizados">Reglamentos y/o instrumentos de planeación poco adecuados o desactualizados</option>';
+            CONCEPPUH_options_str  += '<option value="Renuencia a los cambios">Renuencia a los cambios</option>';
+            CONCEPPUH_options_str  += '<option value="Restauración de inmuebles, conjuntos patrimoniales o del paisajes cultural">Restauración de inmuebles, conjuntos patrimoniales o del paisajes cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Revalorar manifestaciones tradicionales">Revalorar manifestaciones tradicionales</option>';
+            CONCEPPUH_options_str  += '<option value="Sobre explotación de los recursos">Sobre explotación de los recursos</option>';
+            CONCEPPUH_options_str  += '<option value="Sobresaturación de uso comercial o turístico del patrimonio cultural">Sobresaturación de uso comercial o turístico del patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Trabajo con comunidades locales, organizaciones ciudadanas y participación social">Trabajo con comunidades locales, organizaciones ciudadanas y participación social</option>';
+            CONCEPPUH_options_str  += '<option value="Transformación en la imagen urbana del centro histórico, así como en sus usos por otros menos compatibles">Transformación en la imagen urbana del centro histórico, así como en sus usos por otros menos compatibles</option>';
+            CONCEPPUH_options_str  += '<option value="Turismo masivo">Turismo masivo</option>';
+            CONCEPPUH_options_str  += '<option value="Ubicación estrategica">Ubicación estrategica</option>';
+            CONCEPPUH_options_str  += '<option value="Uso efiiente de vías de comunicación terrestre">Uso efiiente de vías de comunicación terrestre</option>';
+            CONCEPPUH_options_str  += '<option value="Uso indebido de la propiedad intelectual de los diseños atesanales">Uso indebido de la propiedad intelectual de los diseños atesanales</option>';
+            CONCEPPUH_options_str  += '<option value="Usos no compatibles con el patrimonio cultural">Usos no compatibles con el patrimonio cultural</option>';
+            CONCEPPUH_options_str  += '<option value="Vinculación con organizaciones independientes">Vinculación con organizaciones independientes</option>';
+            CONCEPPUH_options_str  += '<option value="Vinculación histórica entre las comunidades y su patrimonio cultural y/o natural">Vinculación histórica entre las comunidades y su patrimonio cultural y/o natural</option>';
+            CONCEPPUH_options_str  += '<option value="Visibilizar experiencias de sostenibilidad medioambiental en el estado">Visibilizar experiencias de sostenibilidad medioambiental en el estado</option>';
+            sel_CONCEPPUH.innerHTML = CONCEPPUH_options_str;
+            div_CONCEPPUH.appendChild(sel_CONCEPPUH);
+            var lab_CONCEPPUH = document.createElement('div');
+            lab_CONCEPPUH.innerHTML = 'CONCEP PUH';
+            lab_CONCEPPUH.className = 'filterlabel';
+            div_CONCEPPUH.appendChild(lab_CONCEPPUH);
+            var reset_CONCEPPUH = document.createElement('div');
+            reset_CONCEPPUH.innerHTML = 'clear filter';
+            reset_CONCEPPUH.className = 'filterlabel';
+            reset_CONCEPPUH.onclick = function() {
+                var options = document.getElementById("sel_CONCEPPUH").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_CONCEPPUH.appendChild(reset_CONCEPPUH);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_LENGUA = document.createElement('div');
+            div_LENGUA.id = "div_LENGUA";
+            div_LENGUA.className= "filterselect";
+            document.getElementById("menu").appendChild(div_LENGUA);
+            sel_LENGUA = document.createElement('select');
+            sel_LENGUA.multiple = true;
+            sel_LENGUA.size = 10;
+            sel_LENGUA.id = "sel_LENGUA";
+            var LENGUA_options_str = "<option value='' unselected></option>";
+            sel_LENGUA.onchange = function(){filterFunc()};
+            LENGUA_options_str  += '<option value="Bats’ik’op">Bats’ik’op</option>';
+            LENGUA_options_str  += '<option value="Chontal De Tabasco">Chontal De Tabasco</option>';
+            LENGUA_options_str  += '<option value="Ch’ol">Ch’ol</option>';
+            LENGUA_options_str  += '<option value="Ixil">Ixil</option>';
+            LENGUA_options_str  += '<option value="Jach-T’aan">Jach-T’aan</option>';
+            LENGUA_options_str  += '<option value="Jakalteko-Popti’">Jakalteko-Popti’</option>';
+            LENGUA_options_str  += '<option value="Kaqchikel">Kaqchikel</option>';
+            LENGUA_options_str  += '<option value="Koti’">Koti’</option>';
+            LENGUA_options_str  += '<option value="Kuti&apos;">Kuti&apos;</option>';
+            LENGUA_options_str  += '<option value="K’iche’">K’iche’</option>';
+            LENGUA_options_str  += '<option value="Maayat’aan">Maayat’aan</option>';
+            LENGUA_options_str  += '<option value="Qato’k">Qato’k</option>';
+            LENGUA_options_str  += '<option value="Qyool (Mam)">Qyool (Mam)</option>';
+            LENGUA_options_str  += '<option value="Qyool (awateco)">Qyool (awateco)</option>';
+            LENGUA_options_str  += '<option value="Q’anjob’al">Q’anjob’al</option>';
+            LENGUA_options_str  += '<option value="Q’eqchí">Q’eqchí</option>';
+            LENGUA_options_str  += '<option value="Teko">Teko</option>';
+            LENGUA_options_str  += '<option value="Tojol-Ab’al">Tojol-Ab’al</option>';
+            LENGUA_options_str  += '<option value="Tseltal">Tseltal</option>';
+            sel_LENGUA.innerHTML = LENGUA_options_str;
+            div_LENGUA.appendChild(sel_LENGUA);
+            var lab_LENGUA = document.createElement('div');
+            lab_LENGUA.innerHTML = 'LENGUA';
+            lab_LENGUA.className = 'filterlabel';
+            div_LENGUA.appendChild(lab_LENGUA);
+            var reset_LENGUA = document.createElement('div');
+            reset_LENGUA.innerHTML = 'clear filter';
+            reset_LENGUA.className = 'filterlabel';
+            reset_LENGUA.onclick = function() {
+                var options = document.getElementById("sel_LENGUA").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_LENGUA.appendChild(reset_LENGUA);
+        resetLabels([layer_MUNICIPIOS_3,layer_PAISAJESCULTURALESFODA_4,layer_PATRIMONIOCULTURALINMATERIAL_10]);
+        map.on("zoomend", function(){
+            resetLabels([layer_MUNICIPIOS_3,layer_PAISAJESCULTURALESFODA_4,layer_PATRIMONIOCULTURALINMATERIAL_10]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_MUNICIPIOS_3,layer_PAISAJESCULTURALESFODA_4,layer_PATRIMONIOCULTURALINMATERIAL_10]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_MUNICIPIOS_3,layer_PAISAJESCULTURALESFODA_4,layer_PATRIMONIOCULTURALINMATERIAL_10]);
+        });
+        </script>
+    </body>
+</html>
